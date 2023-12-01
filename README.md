@@ -1,24 +1,7 @@
-# README
+# Demo applicazione ruby on rails 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo di un'applicazione ruby on rails che utilizza active storage e graphql.
 
-Things you may want to cover:
+* Rails 7.0.8
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby 3.1.2
