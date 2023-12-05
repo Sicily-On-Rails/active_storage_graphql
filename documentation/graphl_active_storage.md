@@ -74,7 +74,7 @@ module Types
     field :name, String, null: false
     field :description, String, null: false
     field :start_date, GraphQL::Types::ISO8601DateTime, null: false
-    field :image_url, String, null: true
+    field :cover_image_url, String, null: true
 
   end
 end
@@ -118,7 +118,7 @@ module Types
     field :events, [EventType], null: false
  
      def all 
-        Event.all.with_attached_image
+        Event
     end
   end
 end
@@ -138,7 +138,7 @@ query {
       id
       name
       startDate
-      imageUrl
+      cover_imageUrl
     }
 }
 ```
@@ -256,9 +256,9 @@ mutation ($name: String!, $description: String!, $startDate: String!, $image: Up
 }
 ```
 
-In questo contesto, stiamo delineando chiaramente cosa dobbiamo passare. Iniziamo dichiarando che si tratta di una mutazione e passiamo i tre tipi di cui abbiamo bisogno. L'immagine è del tipo Upload, che corrisponderà al tipo Upload dal server di upload di Apollo. Successivamente, chiamiamo la mutazione add_event che abbiamo creato in precedenza. Ricorda che snake_case viene convertito in camel case in GraphQL, ecco perché sembra leggermente diverso. Dopo di che, forniamo i valori di input, che nel nostro caso sono il nome, la data di inizio e l'immagine. Infine, forniamo i valori di ritorno, simili alla query.
+Qui possiamo vedere più chiaramente esattamente ciò che dobbiamo passare. Prima diciamo che è una mutazione e passiamo i tre tipi di cui abbiamo bisogno. L'immagine è di tipo Upload, che corrisponderà al tipo Upload dal server di upload di Apollo. Successivamente, chiamiamo la mutazione add_event che abbiamo creato in precedenza. Ricorda che snake_case viene convertito in camel case in GraphQL, ecco perché sembra un po' diverso. Dopo di ciò, forniamo i valori di input, che nel nostro caso sono il nome, la data di inizio e l'immagine. Infine, forniamo i valori di ritorno, simili alla query.
 
-La parte finale dell'operazione sono le variabili, che costituiscono un hash di tutte le variabili che includiamo nella richiesta. Nota che l'immagine è impostata su null poiché sarà inclusa in una parte separata della richiesta.
+La parte finale dell'operazione sono le variabili, che è un hash di tutte le variabili che stiamo includendo nella richiesta. Nota che l'immagine è impostata su null poiché sarà inclusa in una parte separata della richiesta.
 
 La seconda parte della richiesta multipart è il campo map.
 

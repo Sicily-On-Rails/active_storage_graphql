@@ -8,5 +8,7 @@ module Types
     def test_field
       "Hello World"
     end
+
+    field :add_event, mutation: Mutations::AddEvent
   end
 end

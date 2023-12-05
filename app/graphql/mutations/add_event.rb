@@ -1,10 +1,12 @@
 module Mutations
     class AddEvent < Mutations::BaseMutation
         argument :name, String, required: true
-        argument :descritpin, String, required: true
-        argument :cover_image, ApolloUploaderServer::Upload required: true
+        argument :descrition, String, required: true
+        argument :start_date, String, required: true
 
-        type Types::EventType, null: true
+        argument :cover_image, ApolloUploadServer::Upload, required: true
+
+        #type Types::EventType, null: true
         field :event, Types::EventType, null: true
         field :errors, [String], null: true    
         
